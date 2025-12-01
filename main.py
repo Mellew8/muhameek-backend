@@ -9,7 +9,7 @@ app = FastAPI()
 # السماح للواجهة (localhost:5500) تتصل بالباك إند
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5500"], 
+    allow_origins=["*"], 
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -46,3 +46,4 @@ async def analyze_contract(file: UploadFile = File(...)):
         page_count=len(reader.pages),
         filename=file.filename,
     )
+
